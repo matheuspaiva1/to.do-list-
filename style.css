@@ -1,0 +1,77 @@
+body {
+  background: #2B2D31;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+
+/*LOGO*/
+header {
+  margin-top: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*TITULO*/
+.title-tasks {
+  max-width: 50%;
+  margin: 0 auto;
+  margin-top: 4em;
+  margin-bottom: 6em;
+}
+.title-tasks hr {
+  border: 0;
+  height: 1px;
+  background:#3C4043;
+}
+
+.title-tasks h1 {
+  font-size: 1.4em;
+  font-weight: 400;
+}
+
+/*SEM-TAREFAS*/
+.no-tasks {
+  max-width: 25%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 5em;
+}
+
+.no-tasks h2 {
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+.no-tasks p {
+  font-weight: 300;
+  font-size: 0.7em;
+}
+
+/*BOTÃO ADICIONAR TAREFA
+*/
+
+.add-task-btn {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.add-task-btn button {
+  width: 51em;
+  min-height: 5em;
+  background: #2B2D31;
+  border: 2px dotted #fff; 
+  cursor: pointer; 
+  color: #fff;
+  font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
