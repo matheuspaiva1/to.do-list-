@@ -12,12 +12,16 @@ header {
   align-items: center;
 }
 
+main {
+  margin-bottom: 5em;
+}
+
 /*TITULO*/
 .title-tasks {
   max-width: 50%;
   margin: 0 auto;
-  margin-top: 4em;
-  margin-bottom: 6em;
+  margin-top: 3em;
+  margin-bottom: 2.5em;
 }
 .title-tasks hr {
   border: 0;
@@ -36,6 +40,8 @@ header {
   margin: 0 auto;
   text-align: center;
   margin-bottom: 5em;
+
+  /*display: none;*/
 }
 
 .no-tasks h2 {
@@ -68,6 +74,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-top: 5em;
 }
 
 .add-task-btn button:hover{
@@ -89,7 +97,7 @@ header {
 
   display: none; 
 
-  display: flex; 
+  /*display: flex;*/ 
   align-items: center; 
   justify-content: end; 
 
@@ -185,8 +193,77 @@ header {
 .modal-content button.close:hover {
   background: #444444;
   cursor: pointer;
-
 }
+
+/*TAREFAS CADASTRADAS*/
+
+.tasks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr 8fr); 
+
+  height: 3.5em;
+  margin: 0 auto;
+  max-width: 51%;
+  padding: 0.3em;
+
+
+  align-items: center;
+}
+
+.tasks:hover{
+  padding: 0.3em;
+  border: none;
+  background: #35373C;
+}
+
+
+.tasks .checkbox input {
+  height: 3em;
+  cursor: pointer;
+}
+
+
+.tasks .description-task {
+  float: left;
+}
+
+
+
+.tasks .description-task p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.8em;
+}
+
+.tasks .description-task span {
+  font-size: 0.6em;
+}
+
+.tasks .editAndRemove-tasks {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  gap: 1.2em;
+}
+
+.tasks .editAndRemove-tasks img {
+  cursor: pointer;
+}
+
+.appear-tasks hr {
+  max-width: 50%;
+  border: 0;
+  height: 1px;
+  background:#35373C;
+
+  margin-top: 0;
+}
+
+.appear-tasks {
+  display: none;
+}
+
 
 
 
