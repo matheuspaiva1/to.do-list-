@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <header>
@@ -27,9 +28,31 @@
 
     <div class="add-task-btn" id="">
       <button>
-        <i class=""></i>
+        <img src="/assets/add-task.svg" alt="Adicionar Tarefa">
         Adicionar Tarefa
       </button>
+    </div>
+
+    <div class="modal">
+      <div class="close-modal">
+        <button>
+          <img src="assets/close-button.svg" alt="Fechar">
+        </button>
+      </div>
+
+      <h1>Fazer o merge da tarefa</h1>
+
+      <form action="">
+        <p>Nome</p>
+        <input type="text" placeholder="Digite o nome aqui">
+
+        <p>Descrição (opcional)</p>
+        <textarea placeholder="Digite a descrição aqui"></textarea>
+      </form>
+      <div class="buttons-modal">
+        <button class="check">Salvar</button>
+        <button class="close">Fechar</button>
+      </div>
     </div>
   </main>
 </body>

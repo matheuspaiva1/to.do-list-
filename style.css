@@ -48,8 +48,7 @@ header {
   font-size: 0.7em;
 }
 
-/*BOTÃO ADICIONAR TAREFA
-*/
+/*BOTÃO ADICIONAR TAREFA*/
 
 .add-task-btn {
   max-width: 50%;
@@ -59,11 +58,21 @@ header {
 .add-task-btn button {
   width: 51em;
   min-height: 5em;
+
   background: #2B2D31;
-  border: 2px dotted #fff; 
+  border: 2px dotted #989898; 
   cursor: pointer; 
-  color: #fff;
+  color: #989898;
   font-weight: 500;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-task-btn button:hover{
+  border-color: #fff;
+  color: #fff;
 }
 
 
