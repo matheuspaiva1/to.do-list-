@@ -40,18 +40,20 @@ function valorModal(){
 
   localStorage.setItem('valor1', valorInput)
   localStorage.setItem('valor2', valorTextarea)
-}
 
-function recuperarValorModal(){
-  let valorInput = localStorage.getItem('valor1')
-  let valorTextarea = localStorage.getItem('valor2')
+  let recValorInput = localStorage.getItem('valor1')
+  let recValorTextarea = localStorage.getItem('valor2')
 
-  if (valorInput || valorTextarea){
+  if (recValorInput || recValorTextarea){
     taskDesc.innerHTML = `
-      <p>${valorInput}</p>
-      <span>${valorInput}</span>
+      <p>${recValorInput}</p>
+      <span>${recValorTextarea}</span>
     `
+    noTasks.style.display = 'none'
+    appearTasks.style.display = 'block'
   }
-}
 
+
+
+}
 
