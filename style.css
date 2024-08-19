@@ -41,7 +41,6 @@ main {
   text-align: center;
   margin-bottom: 5em;
 
-  /*display: none;*/
 }
 
 .no-tasks h2 {
@@ -227,8 +226,6 @@ main {
   float: left;
 }
 
-
-
 .tasks .description-task p {
   margin-top: 0;
   margin-bottom: 0;
@@ -247,8 +244,14 @@ main {
   gap: 1.2em;
 }
 
-.tasks .editAndRemove-tasks img {
+.tasks .editAndRemove-tasks button {
+  background: transparent;
+  border: none;
   cursor: pointer;
+  border-radius: 16px;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
 }
 
 .appear-tasks hr {

@@ -21,17 +21,17 @@
       <hr>
     </div>
 
-    <div class="no-tasks" id="">
+    <div class="no-tasks" id="no-tasks">
       <h2>Você ainda não criou nenhuma tarefa</h2>
       <p>Não se preocupe, suas novas tarefas irão aparecer aqui.</p>
     </div>
 
-    <div class="appear-tasks">
+    <div class="appear-tasks" id="appear-tasks">
       <div class="tasks">
         <div class="checkbox">
           <input type="checkbox">
         </div>
-        <div class="description-task">
+        <div class="description-task" id="description-task">
           <p>Fazer merge da tarefa</p>
           <span>Realizar tarefa de incluir um botão de download</span>        
         </div>
@@ -39,8 +39,8 @@
         
         </div>
         <div class="editAndRemove-tasks">
-          <img src="/assets/edit-task.svg" alt="Editar tarefas">
-          <img src="/assets/remove-task.svg" alt="Remover tarefas">
+          <button><img src="/assets/edit-task.svg" alt="Editar tarefas" id="edit-task"></button>
+          <button><img src="/assets/remove-task.svg" alt="Remover tarefas" id="remove-task"></button>
         </div>
       </div>
   
@@ -58,8 +58,8 @@
         
         </div>
         <div class="editAndRemove-tasks">
-          <img src="/assets/edit-task.svg" alt="Editar tarefas">
-          <img src="/assets/remove-task.svg" alt="Remover tarefas">
+          <button><img src="/assets/edit-task.svg" alt="Editar tarefas" id="edit-task"></button>
+          <button><img src="/assets/remove-task.svg" alt="Remover tarefas" id="remove-task"></button>
         </div>
       </div>
   
@@ -77,8 +77,8 @@
         
         </div>
         <div class="editAndRemove-tasks">
-          <img src="/assets/edit-task.svg" alt="Editar tarefas">
-          <img src="/assets/remove-task.svg" alt="Remover tarefas">
+          <button><img src="/assets/edit-task.svg" alt="Editar tarefas" id="edit-task"></button>
+          <button><img src="/assets/remove-task.svg" alt="Remover tarefas" id="remove-task"></button>
         </div>
       </div>
   
@@ -122,5 +122,7 @@
       </div>
     </div>
   </main>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
