@@ -126,6 +126,7 @@ main {
 .modal-content .close-modal button {
   background: #2B2D31;
   border: none;
+  cursor: pointer;
 }
 
 .modal-content form input {

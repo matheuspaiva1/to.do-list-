@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,12 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
 
 </head>
+
 <body>
   <header>
     <img src="/assets/logo.svg" alt="Logo">
@@ -31,92 +35,90 @@
         <div class="checkbox">
           <input type="checkbox">
         </div>
-        <div class="description-task" id="description-task">
-          <p>Fazer merge da tarefa</p>
-          <span>Realizar tarefa de incluir um botão de download</span>        
+        <div class="description-task" id="task-desc">
+          <p id="nome-task">Fazer merge da tarefa</p>
+          <span id="desc-task">Realizar tarefa de incluir um botão de download</span>
         </div>
         <div class="null">
-        
+
         </div>
         <div class="editAndRemove-tasks">
           <button><img src="/assets/edit-task.svg" alt="Editar tarefas" id="edit-task"></button>
           <button><img src="/assets/remove-task.svg" alt="Remover tarefas" id="remove-task"></button>
         </div>
       </div>
-  
+
       <hr>
-  
+
       <div class="tasks">
         <div class="checkbox">
           <input type="checkbox">
         </div>
         <div class="description-task">
           <p>Fazer merge da tarefa</p>
-          <span>Realizar tarefa de incluir um botão de download</span>        
+          <span>Realizar tarefa de incluir um botão de download</span>
         </div>
         <div class="null">
-        
+
         </div>
         <div class="editAndRemove-tasks">
           <button><img src="/assets/edit-task.svg" alt="Editar tarefas" id="edit-task"></button>
           <button><img src="/assets/remove-task.svg" alt="Remover tarefas" id="remove-task"></button>
         </div>
       </div>
-  
+
       <hr>
-  
+
       <div class="tasks">
         <div class="checkbox">
           <input type="checkbox">
         </div>
         <div class="description-task">
           <p>Fazer merge da tarefa</p>
-          <span>Realizar tarefa de incluir um botão de download</span>        
+          <span>Realizar tarefa de incluir um botão de download</span>
         </div>
         <div class="null">
-        
+
         </div>
         <div class="editAndRemove-tasks">
           <button><img src="/assets/edit-task.svg" alt="Editar tarefas" id="edit-task"></button>
           <button><img src="/assets/remove-task.svg" alt="Remover tarefas" id="remove-task"></button>
         </div>
       </div>
-  
+
       <hr>
-  
+
     </div>
 
 
-    <div class="add-task-btn" id="">
+    <div class="add-task-btn" id="add-task-btn">
       <button>
         <img src="/assets/add-task.svg" alt="Adicionar Tarefa">
         Adicionar Tarefa
       </button>
     </div>
 
-    <div class="modal">
-      
+    <div class="modal" id="modal">
+
       <div class="modal-content">
         <div class="close-modal">
-          <button>
+          <button id="close-modal">
             <img src="assets/close-button.svg" alt="Fechar">
           </button>
         </div>
-          <div class="modal-container">
-          
-          
+        <div class="modal-container">
           <h1>Fazer o merge da tarefa</h1>
-          
+
           <form action="">
             <p>Nome</p>
-            <input type="text" placeholder="Digite o nome aqui">
-            
+            <input type="text" placeholder="Digite o nome aqui" id="input-modal">
+
             <p>Descrição (opcional)</p>
-            <textarea placeholder="Digite a descrição aqui"></textarea>
+            <textarea placeholder="Digite a descrição aqui" id="textarea-modal"></textarea>
           </form>
           <div class="modal-buttons">
-            <button class="close">Fechar</button>
-            <button class="check">Salvar Tarefa</button>
+            <button class="close" id="close">Fechar</button>
+            <button class="check" id="save-task" onclick="valorModal()">Salvar Tarefa</button>
           </div>
         </div>
       </div>
@@ -125,4 +127,5 @@
 
   <script src="scripts.js"></script>
 </body>
+
 </html>
