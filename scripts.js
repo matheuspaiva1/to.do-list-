@@ -78,7 +78,10 @@ function displayTasks() {
 
       checkboxDiv.appendChild(checkboxInput)
 
-      checkboxInput.addEventListener('click', () => {})
+      checkboxInput.addEventListener('click', () => {
+        p.style.textDecoration = 'line-through'
+        span.style.textDecoration = 'line-through'
+      })
 
       const descriptionTaskDiv = document.createElement('div')
       descriptionTaskDiv.className = 'description-task'
