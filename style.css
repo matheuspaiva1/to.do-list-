@@ -268,6 +268,91 @@ main {
   display: none;
 }
 
+@media (max-width: 1024px) {
+  .title-tasks {
+    max-width: 80%;
+    margin-top: 1.5em;
+  }
+
+  .no-tasks {
+    max-width: 90%;
+    margin-bottom: 3em;
+  }
+
+  .add-task-btn button {
+    width: 100%;
+    min-height: 4em;
+  }
+
+  .tasks {
+    grid-template-columns: 1fr 6fr;
+  }
+
+  .modal .modal-content {
+    width: 90%;
+    padding: 2em;
+    margin-top: 1.5em;
+  }
+
+  .modal .modal-content .modal-container {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .title-tasks {
+    max-width: 80%;
+    margin-top: 1.5em;
+  }
+
+  .no-tasks {
+    max-width: 90%;
+    margin-bottom: 3em;
+  }
+
+  .add-task-btn button {
+    width: 100%;
+    min-height: 4em;
+  }
+
+  .tasks {
+    grid-template-columns: 1fr 6fr;
+  }
+
+  .modal .modal-content {
+    width: 90%;
+    padding: 2em;
+    margin-top: 1.5em;
+  }
+
+  .modal .modal-content .modal-container {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-tasks h1 {
+    font-size: 1em;
+  }
+
+  .tasks {
+    grid-template-columns: 1fr 4fr;
+    padding: 0.2em;
+  }
+
+  .tasks .description-task p,
+  .tasks .description-task span {
+    font-size: 0.6em;
+  }
+
+  .modal-content button.check,
+  .modal-content button.close {
+    width: 80px;
+    height: 36px;
+  }
+}
+
+
 
 
 
