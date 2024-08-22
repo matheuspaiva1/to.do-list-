@@ -14,7 +14,7 @@ const textareaModal = document.getElementById('textarea-modal')
 
 const saveTask = document.getElementById('save-task')
 
-const close = document.getElementById('close')
+const closeModal2 = document.getElementById('close')
 
 const taskDesc = document.getElementById('task-desc')
 
@@ -34,150 +34,137 @@ closeModal.addEventListener('click', () => {
   modal.style.display = 'none'
 })
 
-close.addEventListener('click', () => {
+closeModal2.addEventListener('click', () => {
   modal.style.display = 'none'
 })
 
-formTasks.addEventListener('submit', function (event) {
-  event.preventDefault()
 
-  let valorInput = inputModal.value
-  let valorTextarea = textareaModal.value
-
-  const novaTarefa = {
-    valorInput: valorInput,
-    valorTextarea: valorTextarea
-  }
-
-  let tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
-
-  tarefas.push(novaTarefa)
-
-  localStorage.setItem('tarefas', JSON.stringify(tarefas))
-
-  formTasks.reset()
-
-  displayTasks()
-})
-
-let taskRemoveAll;
+let tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 function displayTasks() {
-  let tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 
-  tarefas.forEach(function (tarefa) {
-    if (tarefas) {
+  appearTasks.innerHTML = ''
+    
+  tarefas.forEach(function (tarefa, index) {
+    console.log(tarefa)
+    console.log(tarefa.taskInput)
+    console.log(tarefa.taskTextarea)
+
+    if (tarefas.length) {
       const taskCheck = document.createElement('div')
       taskCheck.className = 'tasks'
-      taskCheck.id = `task-check-${tarefa.valorInput}`
-
+      taskCheck.id = `task-check-${index}`
+      
       const checkboxDiv = document.createElement('div')
       checkboxDiv.className = 'checkbox'
 
       const checkboxInput = document.createElement('input')
       checkboxInput.type = 'checkbox'
-
+      
       checkboxDiv.appendChild(checkboxInput)
 
       checkboxInput.addEventListener('click', () => {
-        p.style.textDecoration = 'line-through'
-        span.style.textDecoration = 'line-through'
+        p.style.textDecoration = checkboxInput.checked ? 'line-through' : 'none'
+        span.style.textDecoration = checkboxInput.checked ? 'line-through' : 'none'
       })
-
+      
       const descriptionTaskDiv = document.createElement('div')
       descriptionTaskDiv.className = 'description-task'
       descriptionTaskDiv.id = 'task-desc'
-
+      
       const p = document.createElement('p')
-      p.textContent = `${tarefa.valorInput}`
-
+      p.textContent = `${tarefa.taskInput}`
+      
       const span = document.createElement('span')
-      span.textContent = `${tarefa.valorTextarea}`
-
+      span.textContent = `${tarefa.taskTextarea}`
+      
       descriptionTaskDiv.appendChild(p)
       descriptionTaskDiv.appendChild(span)
-
+      
       const nullDiv = document.createElement('div')
       nullDiv.className = 'null'
-
+      
       const editAndRemoveDiv = document.createElement('div')
       editAndRemoveDiv.className = 'editAndRemove-tasks'
-
+      
       const editButton = document.createElement('button')
       const editImg = document.createElement('img')
       editImg.src = '/assets/edit-task.svg'
       editImg.alt = 'Editar tarefas'
-      editImg.id = 'edit-task'
+      
+      editButton.addEventListener('click', () =>{
+        modal.style.display = 'flex'
+                
+        inputModal.value = tarefa.taskInput
+        textareaModal.value = tarefa.taskTextarea
+        saveTask.dataset.index = index
+
+      })
       editButton.appendChild(editImg)
 
       const removeButton = document.createElement('button')
       removeButton.id = 'remove-task'
       const removeImg = document.createElement('img')
       removeImg.src = '/assets/remove-task.svg'
-      removeImg.alt = 'Remover tarefas'
-
+      
       removeButton.addEventListener('click', function() {
-        taskCheck.remove()
-
-        tarefas = tarefas.filter(t => t.valorInput !== tarefa.valorInput)
-        localStorage.setItem('tarefas', JSON.stringify(tarefas))
-
-        if(tarefas.length === 0){
-          noTasks.style.display = 'block'
-          appearTasks.style.display = 'none'
-        }
+        tarefas.splice(index, 1)
+        
+        localStorage.setItem('tarefas', JSON.stringify(tarefas));
+        
+        displayTasks()
       })
-
-
+      
       removeButton.appendChild(removeImg)
-
+      
       editAndRemoveDiv.appendChild(editButton)
       editAndRemoveDiv.appendChild(removeButton)
-
+      
       taskCheck.appendChild(checkboxDiv)
       taskCheck.appendChild(descriptionTaskDiv)
       taskCheck.appendChild(nullDiv)
       taskCheck.appendChild(editAndRemoveDiv)
-
+      
       appearTasks.appendChild(taskCheck)
-
+      
       noTasks.style.display = 'none'
       appearTasks.style.display = 'block'
     }
-
+    
     
   })
- 
-}
-displayTasks()
 
-/*
-function valorModal(){
+  if (tarefas.length === 0) {
+    noTasks.style.display = 'block';
+    appearTasks.style.display = 'none';
+  }
+  
+}
+
+formTasks.addEventListener('submit', function (event) {
+
+  event.preventDefault()
 
   let valorInput = inputModal.value
   let valorTextarea = textareaModal.value
 
-  localStorage.setItem('valor1', valorInput)
-  localStorage.setItem('valor2', valorTextarea)
+  const index = saveTask.dataset.index
 
-  const tarefa = {
-    valorInput: valorInput,
-    valorTextarea: valorTextarea
-  };
-
-  const tarefaArray = tarefa;
-
-  let tarefas1 = JSON.parse(localStorage.getItem(valorInput)) || [];
-  let tarefas2 = JSON.parse(localStorage.getItem(valorTextarea)) || [];
-
-  tarefas1.push(tarefaArray);
-
-  console.log(tarefaArray);
-
-  if (tarefaArray.valorInput || tarefaArray.valorTextarea){
-    taskDesc.innerHTML = `
-      <p>${tarefaArray.valorInput}</p>
-      <span>${tarefaArray.valorTextarea}</span>
+  if(index !== undefined && index !== '') {
+    tarefas[index] = { taskInput: valorInput, taskTextarea: valorTextarea };
+    saveTask.removeAttribute('data-index');
+  } else {
+    tarefas.push({ taskInput: valorInput, taskTextarea: valorTextarea });
   }
 
-}
-*/
+  localStorage.setItem('tarefas', JSON.stringify(tarefas))
+
+  formTasks.reset()
+
+  modal.style.display = 'none';
+
+  console.log(tarefas)
+
+  displayTasks()
+})
+
+displayTasks();
