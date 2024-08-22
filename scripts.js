@@ -27,7 +27,7 @@ const taskCheck = document.getElementById('task-check')
 const formTasks = document.getElementById('form-tasks')
 
 addTaskBtn.addEventListener('click', () => {
-  modal.style.display = 'flex';
+  modal.style.display = 'flex'
 })
 
 closeModal.addEventListener('click', () => {
@@ -38,8 +38,8 @@ close.addEventListener('click', () => {
   modal.style.display = 'none'
 })
 
-formTasks.addEventListener('submit', function(event) {
-  event.preventDefault(); 
+formTasks.addEventListener('submit', function (event) {
+  event.preventDefault()
 
   let valorInput = inputModal.value
   let valorTextarea = textareaModal.value
@@ -47,92 +47,105 @@ formTasks.addEventListener('submit', function(event) {
   const novaTarefa = {
     valorInput: valorInput,
     valorTextarea: valorTextarea
-  };
+  }
 
-  let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+  let tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 
-  tarefas.push(novaTarefa);
+  tarefas.push(novaTarefa)
 
-  localStorage.setItem('tarefas', JSON.stringify(tarefas));
+  localStorage.setItem('tarefas', JSON.stringify(tarefas))
 
   formTasks.reset()
 
   displayTasks()
-
 })
 
-function displayTasks(){
-  let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+let taskRemoveAll;
+function displayTasks() {
+  let tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 
-  
+  tarefas.forEach(function (tarefa) {
+    if (tarefas) {
+      const taskCheck = document.createElement('div')
+      taskCheck.className = 'tasks'
+      taskCheck.id = `task-check-${tarefa.valorInput}`
 
-  tarefas.forEach(function(tarefa) {
-    if (tarefas){
+      const checkboxDiv = document.createElement('div')
+      checkboxDiv.className = 'checkbox'
 
-const taskCheck = document.createElement('div');
-taskCheck.className = 'tasks';
-taskCheck.id = 'task-check';
+      const checkboxInput = document.createElement('input')
+      checkboxInput.type = 'checkbox'
 
-const checkboxDiv = document.createElement('div');
-checkboxDiv.className = 'checkbox';
+      checkboxDiv.appendChild(checkboxInput)
 
-const checkboxInput = document.createElement('input');
-checkboxInput.type = 'checkbox';
+      checkboxInput.addEventListener('click', () => {})
 
-checkboxDiv.appendChild(checkboxInput);
+      const descriptionTaskDiv = document.createElement('div')
+      descriptionTaskDiv.className = 'description-task'
+      descriptionTaskDiv.id = 'task-desc'
 
-const descriptionTaskDiv = document.createElement('div');
-descriptionTaskDiv.className = 'description-task';
-descriptionTaskDiv.id = 'task-desc';
+      const p = document.createElement('p')
+      p.textContent = `${tarefa.valorInput}`
 
-const p = document.createElement('p');
-p.textContent = `${tarefa.valorInput}`;
+      const span = document.createElement('span')
+      span.textContent = `${tarefa.valorTextarea}`
 
-const span = document.createElement('span');
-span.textContent = `${tarefa.valorTextarea}`;
+      descriptionTaskDiv.appendChild(p)
+      descriptionTaskDiv.appendChild(span)
 
-descriptionTaskDiv.appendChild(p);
-descriptionTaskDiv.appendChild(span);
+      const nullDiv = document.createElement('div')
+      nullDiv.className = 'null'
 
-const nullDiv = document.createElement('div');
-nullDiv.className = 'null';
+      const editAndRemoveDiv = document.createElement('div')
+      editAndRemoveDiv.className = 'editAndRemove-tasks'
 
-const editAndRemoveDiv = document.createElement('div');
-editAndRemoveDiv.className = 'editAndRemove-tasks';
+      const editButton = document.createElement('button')
+      const editImg = document.createElement('img')
+      editImg.src = '/assets/edit-task.svg'
+      editImg.alt = 'Editar tarefas'
+      editImg.id = 'edit-task'
+      editButton.appendChild(editImg)
 
-const editButton = document.createElement('button');
-const editImg = document.createElement('img');
-editImg.src = '/assets/edit-task.svg';
-editImg.alt = 'Editar tarefas';
-editImg.id = 'edit-task';
-editButton.appendChild(editImg);
+      const removeButton = document.createElement('button')
+      removeButton.id = 'remove-task'
+      const removeImg = document.createElement('img')
+      removeImg.src = '/assets/remove-task.svg'
+      removeImg.alt = 'Remover tarefas'
 
-const removeButton = document.createElement('button');
-const removeImg = document.createElement('img');
-removeImg.src = '/assets/remove-task.svg';
-removeImg.alt = 'Remover tarefas';
-removeImg.id = 'remove-task';
-removeButton.appendChild(removeImg);
+      removeButton.addEventListener('click', function() {
+        taskCheck.remove()
 
-editAndRemoveDiv.appendChild(editButton);
-editAndRemoveDiv.appendChild(removeButton);
+        tarefas = tarefas.filter(t => t.valorInput !== tarefa.valorInput)
+        localStorage.setItem('tarefas', JSON.stringify(tarefas))
 
-taskCheck.appendChild(checkboxDiv);
-taskCheck.appendChild(descriptionTaskDiv);
-taskCheck.appendChild(nullDiv);
-taskCheck.appendChild(editAndRemoveDiv);
+        if(tarefas.length === 0){
+          noTasks.style.display = 'block'
+          appearTasks.style.display = 'none'
+        }
+      })
 
-appearTasks.appendChild(taskCheck);
 
-noTasks.style.display = 'none'
-appearTasks.style.display = 'block'
+      removeButton.appendChild(removeImg)
+
+      editAndRemoveDiv.appendChild(editButton)
+      editAndRemoveDiv.appendChild(removeButton)
+
+      taskCheck.appendChild(checkboxDiv)
+      taskCheck.appendChild(descriptionTaskDiv)
+      taskCheck.appendChild(nullDiv)
+      taskCheck.appendChild(editAndRemoveDiv)
+
+      appearTasks.appendChild(taskCheck)
+
+      noTasks.style.display = 'none'
+      appearTasks.style.display = 'block'
     }
-  }
-);
+
+    
+  })
+ 
 }
-
 displayTasks()
-
 
 /*
 function valorModal(){
@@ -161,8 +174,6 @@ function valorModal(){
     taskDesc.innerHTML = `
       <p>${tarefaArray.valorInput}</p>
       <span>${tarefaArray.valorTextarea}</span>
-    `
-   
   }
 
 }
